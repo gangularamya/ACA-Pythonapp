@@ -1,10 +1,12 @@
 name: Test Self-Hosted Runner
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:   # <-- This enables manual runs from the GitHub UI
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: [self-hosted, linux, azure]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
